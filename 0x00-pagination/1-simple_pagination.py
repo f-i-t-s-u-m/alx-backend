@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+""" simple python paggination """
 
 import csv
 import math
