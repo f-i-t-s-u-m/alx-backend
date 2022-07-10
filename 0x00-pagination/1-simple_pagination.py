@@ -33,8 +33,8 @@ class Server:
         pg = index_range(page, page_size)
         return self.__dataset[pg[0]:pg[1]]
 
-    def index_range(page: int, page_size: int) -> Tuple[int, int]:
-        """ indx range function """
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
+    """ indx range function """
 
-        last: int = page * page_size
-        return (last - page_size, last)
+    last: int = page * page_size
+    return (last - page_size, last)
