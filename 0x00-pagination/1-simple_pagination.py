@@ -31,7 +31,7 @@ class Server:
         assert isinstance(page_size, int) and page_size > 0
         pg: Tuple[int, int] = index_range(page, page_size)
         data: List[List] = self.dataset()
-        return data[pg[0]:pg[1]]
+        return (data[pg[0]:pg[1]])
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
