@@ -27,8 +27,8 @@ class Server:
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """ get page function to return pagginated index """
-        assert int == type(page) and page > 0
-        assert int == type(page_size) and page_size > 0
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
         pg = index_range(page, page_size)
         return self.dataset()[pg[0]:pg[1]]
 
