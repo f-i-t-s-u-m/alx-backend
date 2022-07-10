@@ -29,9 +29,9 @@ class Server:
         """ get page function to return pagginated index """
         assert int == type(page) and page > 0
         assert int == type(page_size) and page_size > 0
-        self.dataset()
         pg = index_range(page, page_size)
-        return self.__dataset[pg[0]:pg[1]]
+        return self.dataset()[pg[0]:pg[1]]
+
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """ indx range function """
