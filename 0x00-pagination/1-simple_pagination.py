@@ -29,7 +29,7 @@ class Server:
         """ get page function to return pagginated index """
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
-        pg = index_range(page, page_size)
+        pg: Tuple[int, int] = index_range(page, page_size)
         return self.dataset()[pg[0]:pg[1]]
 
 
