@@ -6,7 +6,7 @@ from flask import (
         render_template,
         request
 )
-from flask_babel import Babel, gettext
+from flask_babel import Babel
 
 
 class Config(object):
