@@ -53,10 +53,10 @@ def get_locale():
         return str(loc)
     elif g.user['locale'] in app.config['LANGUAGES']:
         return g.user['locale']
-    elif request.accept_languages:
-        return request.accept_languages.best_match(app.config['LANGUAGES'])
-    else:
-        return request.babel_default_local
+    elif request.headers.get('locale') in app.config['LANGUAGES']:
+        return request.headers.get('locale')
+        
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route('/', strict_slashes=False)
