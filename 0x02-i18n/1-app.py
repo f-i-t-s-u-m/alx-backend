@@ -11,7 +11,9 @@ babel = Babel(app)
 class Config:
     """ app config class """
     LANGUAGES = ['en', 'fr']
-    
+    local = 'en'
+    timezone = 'UTC'
+
 
 @app.route('/')
 def index():
