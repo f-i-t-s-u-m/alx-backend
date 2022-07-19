@@ -50,7 +50,7 @@ def get_locale():
     if loc and loc in app.config['LANGUAGES']:
         return str(loc)
     elif g.user and g.user.get('locale') in app.config['LANGUAGES']:
-            return g.user.get('locale')
+        return g.user.get('locale')
     elif request.accept_languages:
         return request.accept_languages.best_match(app.config['LANGUAGES'])
     return babel.default_locale
