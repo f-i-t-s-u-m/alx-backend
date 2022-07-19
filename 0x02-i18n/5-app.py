@@ -40,9 +40,7 @@ def get_user():
 @app.before_request
 def before_request():
     """ get user data """
-    user = get_user()
-    if user:
-        g.user = user
+    g.user = get_user()
 
 
 @babel.localeselector

@@ -40,9 +40,7 @@ def get_user():
 @app.before_request
 def before_request():
     """ get user data """
-    user = get_user()
-    if user:
-        g.user = user
+    g.user = get_user()
 
 
 @babel.localeselector
@@ -51,8 +49,8 @@ def get_locale():
     loc = request.args.get('locale')
     if loc and loc in app.config['LANGUAGES']:
         return str(loc)
-    elif g.user['locale'] in app.config['LANGUAGES']:
-        return g.user['locale']
+    elif g.user and g.user.get('locale') in app.config['LANGUAGES']:
+            return g.user.get('locale')
     elif request.accept_languages:
         return request.accept_languages.best_match(app.config['LANGUAGES'])
     return babel.default_locale
