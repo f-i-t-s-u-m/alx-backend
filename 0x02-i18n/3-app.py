@@ -8,7 +8,7 @@ from flask_babel import Babel, gettext
 class Config:
     """ app config class """
     LANGUAGES = ['en', 'fr']
-    BABEL_DEFAULT_LOCALE = 'fr'
+    BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
@@ -26,9 +26,7 @@ def get_locale():
 @app.route('/')
 def index():
     """ index route """
-    title = gettext("home_title")
-    header = gettext("home_header")
-    return render_template('3-index.html', title=title, header=header)
+    return render_template('3-index.html')
 
 
 if __name__ == '__main__':
