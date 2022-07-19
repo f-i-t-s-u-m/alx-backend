@@ -49,12 +49,15 @@ def before_request():
 def get_locale():
     """ return best match language """
     loc = request.args.get('locale')
-    if loc and loc in app.config['LANGUAGES']:
-        return str(loc)
-    elif g.user['locale'] in app.config['LANGUAGES']:
-        return g.user['locale']
-    elif request.headers.get('locale') in app.config['LANGUAGES']:
-        return request.headers.get('locale')
+    if loc in app.config['LANGUAGES']:
+        return loc
+    if g.user:
+        loc = g.user.get('locale')
+        if loc and loc in app.config['LANGUAGES']:
+            return loc
+    loc = request.headers.get('locale', None)
+    if loc in app.config['LANGUAGES']:
+        return loc
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
